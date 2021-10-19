@@ -1,17 +1,39 @@
-# Como funciona um computador
+# Sumário
+
+[1. Introdução](#Introdução)   
+[2. Introdução ao C# e .Net](#Introdução-ao-C#-e-.Net)  
+[3. Github](#Github)  
+[4. Lógica de programação](#Lógica-de-programação)  
+[5. Tipos de dados](#Tipos-de-dados)  
+[6. Funções](#Funções)  
+[7. Orientação a objetos (OOP)](#Orientação-a-objetos-(OOP))  
+[8. Listas](#Listas)  
+[9. Programação assíncrona](#Programação-assíncrona)  
+[10. Programação Web](#Programação-Web)  
+[11. Testes](#Testes)  
+[12. SQL](#SQL)  
+[13. Criando APIs com banco de dados relacional](#Acesso-ao-banco-de-dados-com-C#)   
+[14. Padrões e boas práticas de desenvolvimento de software](#Padrões-e-boas-práticas-de-desenvolvimento-de-software)  
+[15. Tópicos avançados](#Tópicos-avançados)  
+
+---
+
+# Introdução
+
+## Como funciona um computador
 
 Para podermos entender como funciona um computador, temos que ter em mente que ele não é uma super máquina que tem consciencia própria e faz coisas sem precisar da intervenção humana, na verdade, um computador faz
 tarefas simples. 
 
 Um computador vê o mundo através de cálculos, tudo que ele executa segue um caminho específico, como numa linha de produção de uma fábrica. Se pedirmos para um computador fazer um cálculo simples, como `(3+6)/2`, ele executará vários passos para resolver essa equação, primeiro alguma parte fará a multiplicação, e o resultado será passado para uma outra parte para fazer a divisão, e assim por diante. 
 
-![imagem input output aqui](./input-output.png)
+![imagem input output aqui](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/input-output.PNG)
 
 De fato, tudo o que um computador faz é computar, como uma calculadora, sempre há um `input` (entrada) e um `output` (saída). O nosso trabalho como desenvolvedores é desenvolver os algorítimos que usam essa entrada, e trabalham com ela de alguma maneira até que tenhamos o resultado desejado como saída. 
 
-# Sistema binário
+## Sistema binário
 
-![imagem input output aqui](./binary-numbers-texture-vector-31657194.jpg)
+![imagem input output aqui](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/binary-numbers.jpg)
 
 Para que nós possamos nos entender melhor com as máquinas que vamos programar, precisamos entender o que é ciência da computação, é claro que não vamos cobrir tudo o que envolve ciência da computação no decorrer dos 3 meses deste curso, mas iremos ter uma noção básica de como as coisas funcionam.
 
@@ -70,15 +92,15 @@ Claro, cento e vinte e três. Nós sabemos disso por que aprendemos no sistema d
 
 No exemplo do `123` temos o seguinte:
 
-![imagem input output aqui](./123.png)
+![imagem input output aqui](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/123.PNG)
 
 A cada casa mais a esquerda multiplicamos em 10 vezes o valor da casa da direita e o resultado da multiplicação desse número pelo dígito decimal logo a baixo representa o valor que esse dígito está assumindo.
 
-![imagem input output aqui](./10.png)
+![imagem input output aqui](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/10.PNG)
 
 E no sistema binário temos a mesma situação, so que ao invés de usarmos a base 10, usamos a base 2.
 
-![imagem input output aqui](./000.png)
+![imagem input output aqui](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/000.PNG)
 
 ----
 
@@ -86,7 +108,7 @@ Tudo o que a gente viu até agora tem a ver com lâmpadas, mas de onde vem esses
 
 É o que está dentro do computador, não são lâmpadas, mas sim minusculos interruptores, bilhões deles, que podem estar ligados ou desligados.
 
-# Representação de dados no sistema binário
+## Representação de dados no sistema binário
 
 Agora que já sabemos sobre como o computador se comunica com os nossos comandos e como ele conta, podemos pensar em não só dígitos numéricos, mas como transformar esses inputs (zeros e uns), em dados mais complexos,  como um caracter, para formar uma palavra.
 
@@ -126,7 +148,7 @@ E se você se pergunta por que existem tantas extenções de arquivos, como `.PN
 
 E deste jeito, todos os tipos de dados, letras, emojis, imagens, vídeos, músicas são representados por um computador usando apenas os zeros e uns, fornecidos pelos impulsos elétricos que são passados pelos transistores.
 
-# Algoritimos
+## Algoritimos
 
 Agora que já entendemos como é feita a representação de dados através de um sistema binário, como o computador transforma zeros e uns em letras, dígitos, emojis, imagens, videos e etc... Conseguimos entender melhor os  algoritimos que são usados para fazer isso. 
 
@@ -163,9 +185,11 @@ Note que nosso algorítimo segue uma sequência lógica, bem definida, e nos ins
 
 ---
 
-![dotnet](./.net.png)
+# Introdução ao C# e .Net
 
-# O C#
+![dotnet](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/.net.png)
+
+## O C#
 
 O C# é uma linguagem de programação moderna, orientada a objeto e `type-safe`. O C# permite que os desenvolvedores criem muitos tipos de aplicativos seguros, robustos e multiplataforma que são executados na plataforma .NET.  
 
@@ -177,7 +201,7 @@ O C# tem um sistema de tipos unificado. Onde todos os tipos do C#, incluindo tip
 
 Os valores de qualquer tipo podem ser armazenados, transportados e operados de maneira consistente. Além disso, o C# dá suporte a tipos de referência definidos pelo usuário e tipos de valor e permite a alocação dinâmica de objetos e o armazenamento em linha de estruturas leves. O C# oferece suporte a tipos e métodos genéricos, que fornecem aumento na segurança e no desempenho.
 
-# O .Net
+## O .Net
 
 Os programas em C# são executados na plataforma .NET, um sistema de execução virtual chamado `Common Language Runtime` (CLR) e um conjunto de bibliotecas de classes. O CLR é a implementação da Microsoft da CLI (Common Language Infrastructure), um padrão internacional.  
 
@@ -233,9 +257,9 @@ usados pelo aplicativo. Em seguida, ele recupera essa memória.
 O `GC` é um dos serviços CLR que ajudam a garantir a segurança da memória. Um programa é considerado de memória segura se ele acessa somente a memória alocada. Por exemplo, o runtime garante que um aplicativo não
 acesse memória não alocada além dos limites de uma matriz.
 
-# .Net Core vs .Net Framework vs .Net Standard
+## .Net Core vs .Net Framework vs .Net Standard
 
-![dotnet-structure](./estrutura-dotnet.png)
+![dotnet-structure](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/estrutura-dotnet.png)
 
 ## .NET Framework
 
@@ -264,9 +288,9 @@ o .NET Framework 4.8, e .NET Core 3.1, são agora o .NET 5, e não teremos mais 
 Se você está planejando construir uma nova aplicação utilizando o .NET, ela deve iniciar com o .NET 5, e para sistemas legados, que utilizam o .NET Framework, deve ser iniciado um planejamento para a migração,
 visto que a Microsoft irá deprecear o .NET Framework.
 
-![dotnet-roadmap](./roadmap-dotnet.png)
+![dotnet-roadmap](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/roadmap-dotnet.png)
 
-# CLI
+## CLI
 
 O .Net oferece uma `CLI` (interface de linha de comando) para a gestão e controles de aplicativos desevolvidos na plataforma. 
 
@@ -306,12 +330,12 @@ As opções que você passa na linha de comando são aquelas do comando invocado
 
 Por exemplo, quando você executa `dotnet publish --output /build_output`, a opção `--output` e seu valor são passados para o comando `dotnet publish`.
 
-# Software livre
+## Software livre
 
 O .NET é de código aberto, usando licenças MIT e Apache 2. O .NET é um projeto do .NET Foundation.
 Para obter mais informações, consulte a lista de repositórios de projeto no [github](https://github.com/dotnet/core/blob/main/Documentation/core-repos.md).
 
-# IDEs
+## IDEs
 
 ### Visual Studio
 
@@ -324,7 +348,44 @@ e personalizável.
 
 ---
 
-# Variáveis
+# GitHub
+
+O GitHub é uma plataforma de hospedagem de código-fonte e arquivos com controle de versão usando o Git. Ele permite que programadores, utilitários ou qualquer usuário cadastrado na plataforma contribuam em projetos privados e/ou Open Source de qualquer lugar do mundo. GitHub é amplamente utilizado por programadores para divulgação de seus trabalhos ou para que outros programadores contribuam com o projeto, além de promover fácil comunicação através de recursos que relatam problemas ou mesclam repositórios remotos (issues, pull request).
+
+## Comandos Git mais usados
+
+| Comando                       | Descrição                                                                |
+|-------------------------------|--------------------------------------------------------------------------|
+| git config                    | Comando genérico para alterar as configurações globais do git no sistema |
+| git init [nome-do-projeto]    | Cria um novo repositório local com nome específico                       |
+| git clone                     | Faz o download de um projeto e todo seu histórico                        |
+| git status                    | Lista todos os arquivos novos ou modificados para serem commitados       |
+| git diff                      | Mostra diferenças no arquivo que não foram realizadas                    |
+| git add [arquivo]             | Faz o snapshot de um arquivo na preparação para versionamento            |
+| git commit -m "[mensagem]"    | Grava o snapshot permanentemente do arquivo no histórico de versão       |
+| git branch                    | Lista todos os branches locais no repositório atual                      |
+| git branch [nome-do-branch    | git branch [nome-do-branch]                                              |
+| git checkout [nome-do-branch] | Muda para o branch específico e atualiza o diretório de trabalho         |
+| git merge [branch]            | Combina o histórico do branch específico com o branch atual              |
+| git stash                     | Armazena temporariamente todos os arquivos rastreados modificados        |
+| git stash pop                 | Restaura os arquivos recentes em stash                                   |
+| git fetch [marcador]          | Baixe todo o histórico de um marcador de repositório                     |
+| git push [alias] [branch]     | Envia todos os commits do branch local para o GitHub                     |
+| git pull                      | Baixa o histórico e incorpora as mudanças                                |
+
+## Gitflow
+
+O Gitflow é um modelo alternativo de ramificação do Git que consiste no uso de ramificações de recursos e várias ramificações primárias. Ele foi publicado pela primeira vez e popularizado por Vincent Driessen no nvie. Comparado ao desenvolvimento baseado em troncos, o Gitflow tem mais ramificações de vida longa e commits maiores. Sob este modelo, os desenvolvedores criam uma ramificação de recurso e retardam o merge com a ramificação de tronco principal até que o recurso esteja completo.
+
+Essas ramificações de recursos de longa duração exigem mais colaboração para fazer o merge e têm um risco maior de se desviarem da ramificação do tronco. Elas também podem introduzir atualizações conflitantes.
+
+![git](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/git.png)
+
+---
+
+# Lógica de programação
+
+## Variáveis
 
 As variáveis representam locais de armazenamento. Cada variável tem um tipo que determina quais valores podem ser armazenados na variável. O C# é uma linguagem de tipo seguro, e o compilador garante que os valores armazenados em variáveis sejam sempre do tipo apropriado. O valor de uma variável pode ser alterado por atribuição ou pelo uso de operadores.
 
@@ -402,7 +463,7 @@ Se você quer ter certeza que o valor da sua variável **não seja modificado** 
 const int a = 1;
 ````
 
-# Operadores
+## Operadores
 
 Toda linguagem de programação possui operadores lógicos para realizar operações booleanas, que resultam em `verdadeiro` ou `falso`, esses operadores se diferem somente no jeito que são definidos pela sintaxe de cada linguagem de programação, mas servem o mesmo propósito e são muito utilizadas por qualquer programa.
 
@@ -789,7 +850,7 @@ Como mostra o exemplo anterior, a sintaxe do operador condicional é a seguinte:
 
 > condicao ? consequência : alternativa
 
-# Instruções
+## Instruções
 
 As ações que um programa executa são expressas em instruções. Ações comuns incluem declarar variáveis, atribuir valores, chamar métodos, fazer loops pelas coleções e ramificar para um ou para outro bloco de código, dependendo de uma determinada condição. A ordem na qual as instruções são executadas em um programa é chamada de fluxo de controle ou fluxo de execução. O fluxo de controle pode variar sempre que um programa é
 executado, dependendo de como o programa reage às entradas que recebe em tempo de execução.
@@ -2014,7 +2075,7 @@ public class Program
 }
 ````
 
-# Null
+## Null
 
 O C# é uma das linguagens de programação que oferece suporte a tipos `nullables`, ou seja, de um modo prático quer dizer que conseguimos iniciar objetos e variáveis e não atribuir valor algum a eles. Basicamente o que fazemos é reservar um espaço na memória que está apontando temporariamente para nenhum valor.
 
@@ -2042,7 +2103,7 @@ string? x = null;
 
 > Todos os objetos que implementam esse comportamento nullable, tem seu valor padrão como `null`, que pode ser diferente do seu tipo "não nullable", e implementam a função `HasValue` e a propriedade `Value`, para checagem e uso do valor respectivamente.
 
-# Tipos de valor
+## Tipos de valor
 
 Tipos de valor e tipos de referência são as duas principais categorias de tipos do C#.
 
@@ -2092,14 +2153,14 @@ public class Program
 
 ````
 
-# Tipos de referência
+## Tipos de referência
 
 Variáveis de tipos de referência armazenam referências em seus dados (objetos) enquanto que variáveis de tipos de valor contém diretamente seus dados. Com tipos de referência, **duas variáveis podem fazer referência ao mesmo objeto**, portanto, operações em uma variável
 podem afetar o objeto referenciado pela outra variável. Com tipos de valor, cada variável tem sua própria cópia dos dados e as operações em uma variável não podem afetar a outra.
 
 Ou seja, simplificando, um tipo de referência na verdade está apontada para um endereço de memória que contém o seu valor de fato, quando copiamos uma variável deste tipo, estamos copiando este endereço, e não seu valor, sendo assim, quando alteramos os valores de uma dessas copias, o valor é alterado nas duas instâncias, já que elas apontam para o mesmo endereço de memória.
 
-# Palavras-chave
+## Palavras-chave
 
 As palavras-chave são identificadores reservados predefinidos com significados especiais para o compilador. Elas não podem ser usadas como identificadores em seu programa, a não ser que incluam @ como prefixo. Por exemplo, @if é um identificador válido, mas if não é porque if é uma palavra-chave.
 
@@ -2128,6 +2189,20 @@ Abaixo está uma lista com algumas palavras-chaves mais conhecidas do C#:
 | else     | lock      | static     |           |
 | enum     | long      | string     |           |
 
+
+## Acessibilidade
+
+Use os modificadores de acesso, public, protected, internal ou private, para especificar um dos níveis de acessibilidade declarada a seguir para membros.
+
+| Acessibilidade declarada | Significado                                                                                                                         |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| public                   | O acesso não é restrito.                                                                                                            |
+| protected                | O acesso é limitado à classe que os contém ou aos tipos derivados da classe que os contém.                                          |
+| internal                 | O acesso é limitado ao assembly atual.                                                                                              |
+| protected internal       | O acesso é limitado ao assembly atual ou aos tipos derivados da classe que os contém.                                               |
+| private                  | O acesso é limitado ao tipo recipiente.                                                                                             |
+| private protected        | O acesso é limitado à classe que o contém ou a tipos derivados da classe que o contém no assembly atual. Disponível desde o C# 7.2. |
+
 ---
 
 # Funções
@@ -2136,6 +2211,45 @@ Um método, ou uma função, é um bloco de código que contém uma série de in
 Um programa faz com que as instruções sejam executadas chamando o método e especificando os argumentos de método necessários. No C#, todas as instruções executadas são realizadas no contexto de um método.
 
 O método `Main` é o ponto deentrada para cada aplicativo C# e échamado pelo Common Language Runtime (CLR) quando o programa é iniciado.
+
+## Estrutura de um programa
+
+Um programa desenvolvido em C# segue uma estrutura padrão que é adotada por todas as aplicações, e consiste na seguintes partes:
+
+* Um namespace;
+* Uma classe;
+* Um método Main;
+* Declaração de usings;
+
+Que podemos ver aqui:
+
+````
+using System;
+
+namespace AppAcademy
+{
+	public class Program
+	{
+		public static void Main()
+		{
+			Console.WriteLine("Hello World");
+		}
+	}
+}
+````
+
+Quando esse código é executado, o resultado é o seguinte:
+
+````
+Hello World
+````
+
+Agora vamos destrinchar linha por linha nosso código e ver o que cada linha faz:
+
+1. A primeira linha do progama: **"using System;"**, a palavra-chave using é usada para incluir o namespace System no programa;
+2. Próxima linha, a declaração do namespace: Um namespace é uma coleção de classes, o namespace AppAcademy contém a classe Program;
+3. A proxima linha define a classe Program, essa contém os dados e definições de métodos que o nosso programa usa;
+4. A quarta linha define o método Main, que é o ponto de entrada para todas as aplicações desenvolvidas com C#;
 
 ### Assinaturas de método
 
@@ -2164,6 +2278,7 @@ abstract class Moto
 	public abstract double VelocidadeMaxima();
 }
 ````
+
 ### Acesso de método
 
 Chamar um método em um objeto é como acessar um campo. Após o nome do objeto, adicione um ponto final, o nome do método e parênteses. Os argumentos são listados dentro dos parênteses e são separados por vírgulas. 
@@ -2198,7 +2313,7 @@ public class Program
 
 ### Parâmetros do método vs. argumentos
 
-A definição do método especifica os nomes etipos de quaisquer parâmetros obrigatórios. Quando o código de chamada chama o método, ele fornece valores concretos, chamados argumentos, para cada parâmetro. Os argumentos devem ser compatíveis com o tipo de parâmetro, mas o nome do argumento (se houver) usado no código de chamada não precisa ser o mesmo que o parâmetro nomeado definido no método.
+A definição do método especifica os nomes e tipos de quaisquer parâmetros obrigatórios. Quando o código de chamada chama o método, ele fornece valores concretos, chamados argumentos, para cada parâmetro. Os argumentos devem ser compatíveis com o tipo de parâmetro, mas o nome do argumento (se houver) usado no código de chamada não precisa ser o mesmo que o parâmetro nomeado definido no método.
 
 ### Passando por referência vs. passando por valor
 
@@ -2302,9 +2417,37 @@ public class Program
 }
 ````
 
+### Extension methods
+
+Os métodos de extensão ou extensions methods são uma implementação do padrão de projeto estrutural Composite e permitem que você adicione uma nova funcionalidade a um tipo de dado que já foi definido sem ter que criar um novo tipo derivado; dessa forma a funcionalidade se comporta como um outro membro do tipo.
+
+````
+using System;
+
+namespace AppAcademy
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			string str = "Minha string";
+			Console.WriteLine(str.RemoveLetrasA()); // Saída: Minh string
+		}
+	}
+	
+	public static class MetodosDeExtensao 
+	{
+		public static string RemoveLetrasA(this string args)
+		{
+			return args.Replace("a", "");
+		}
+	}
+}
+````
+
 ---
 
-# Orientação a objetos
+# Orientação a objetos (OOP)
 
 O desenvolvimento de software é extremamente amplo. Nesse mercado, existem diversas linguagens de programação, que seguem diferentes paradigmas. Um desses paradigmas é a Orientação a Objetos, que atualmente é o mais difundido entre todos. Isso acontece porque se trata de um padrão que tem evoluído muito, principalmente em questões voltadas para segurança e reaproveitamento de código, o que é muito importante no desenvolvimento de qualquer aplicação moderna.
  
@@ -2346,7 +2489,7 @@ Bom, podemos dizer que ela **realiza o cadastro no sorteio**, e pode **verificar
 
 Então definimos os dois comportamentos da nossa classe. E podemos representar ela desse jeito:
 
-![diagrama-1](./pessoa-2.png)
+![diagrama-1](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/pessoa-2.PNG)
 
 ## Herança
 
@@ -2358,7 +2501,7 @@ Imaginamos a classe pessoa que descrevemos, nesse momento, somente definimos uma
 
 Porém, esse funcionário tem uma estrutura muito parecida com um cliente da padaria, eles compartilham sua estrutura `base`. Para não termos duas definição de classe `pessoa`, uma para o cliente, e outra para o funcionário, usamos da herança para definir uma classe base com os dados compartilhados entre esses dois objetos, e implementamos, para cada tipo de pessoa diferente um novo tipo, que herda dessa classe base:
 
-![diagrama-2](./pessoa-3.png)
+![diagrama-2](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/pessoa-3.PNG)
 
 Veja que a classe base `pessoa` passou a ter somente os dados que os tipos `funcionario` e `cliente` compartilham, ficando a cargo de cada uma agora, implementar os dados pertinentes ao seu tipo, como o cargo do funcionário, ou o telefone do cliente.
 
@@ -2370,7 +2513,7 @@ O encapsulamento ele define que cada objeto contém todos os detalhes de impleme
 
 No exemplo das nossas classes de pessoa, o `comportamento` de cada um está encapsulado dentro de seus métodos e propriedades específicas, podemos usar um outro exemplo para exemplificar:
 
-![diagrama-3](./carro-1.png)
+![diagrama-3](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/carro-1.PNG)
 
 No diagrama temos definida a classe base `Carro`, e duas outras que fazem herança da mesma, `BMW` e `Mercedes`. 
 
@@ -2384,11 +2527,11 @@ Como um exemplo, podemos definir um objeto base `Animal`, e algumas outras class
 
 A classe `Animal` tem um comportamento que se chama `Falar`, e toda classe que herda desta deve implementar essa função conforme necessário:
 
-![diagrama-4](./animal-1.png)
+![diagrama-4](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/animal-1.PNG)
 
 Podemos considerar que quando um objeto da classe `Cachorro` implementar a função `Falar`, será diferente da implementação da classe `Gato`.
 
-## Abstratação
+## Abstração
 
 Também chamada de interface ou template. Muitos simplificam sua explicação como sendo uma espécie de mistura de encapsulamento e polimorfismo. A ideia principal é representar um objeto de forma abstrata, que seja obrigatoriamente herdado por outras classes.
 
@@ -2701,3 +2844,782 @@ public class Program
 	}
 }
 ````
+
+---
+
+# Programação assíncrona
+
+Hoje em dia, a programação assíncrona é muito popular com a ajuda das palavras-chave async e await no C#. 
+
+É possível evitar gargalos de desempenho e aprimorar a resposta geral do seu aplicativo usando a programação assíncrona. No entanto, as técnicas tradicionais para escrever aplicativos assíncronos podem ser complicadas, dificultando sua escrita, depuração e manutenção.
+
+O C# 5 apresentou uma abordagem de programação assíncrona simplificada que aproveita o suporte assíncrono no .NET Framework 4.5 e superior, no .NET Core e no Windows Runtime. O compilador faz o trabalho difícil que o desenvolvedor costumava fazer, e seu aplicativo mantém a estrutura lógica que se assemelha ao código síncrono. Como resultado, você obtém todas as vantagens da programação assíncrona com uma fração do esforço.
+
+### O Async melhora a capacidade de resposta
+
+A assincronia é essencial para atividades que potencialmente podem bloquear o fluxo de um aplicativo, como o consumo de serviços de outra rede. O acesso a um recurso de uma rede externa muitas vezes é lento. Se tal atividade for bloqueada por um processo síncrono, todo o aplicativo deverá esperar. Em um processo assíncrono, o aplicativo poderá prosseguir com outro trabalho que não dependa desse recurso até a tarefa potencialmente causadora do bloqueio terminar.
+
+### Os métodos assíncronos são fáceis de escrever
+
+As palavras-chave async e await em C# são a parte central da programação assíncrona. Usando essas duas palavras-chave, você pode usar recursos no .NET Framework, no .Net Core para criar um método assíncrono quase tão fácilmente quanto criar um método síncrono. Os métodos assíncronos que você define usando a palavra-chave async são chamados de métodos assíncronos.
+
+## Task and Task\<T>
+
+As classes `Task` e `Task<T>` são o núcleo da programação assíncrona em .NET. Elas facilitam todos os tipos de interações com a operação assíncrona que representam, como:
+
+* Adicionando tarefas de continuação;
+* Bloqueando a thread atual para esperar até que a tarefa seja concluída;
+* Sinalização de cancelamento (via CancelamentoTokens);
+
+Depois de iniciar uma operação assíncrona e obter um objeto `Task` ou `Task<T>`, você pode continuar usando a thread de execução atual para executar de forma assíncrona outras instruções que não precisam do resultado da tarefa, ou interagir com a tarefa conforme necessário.
+
+## async e await
+
+As palavras-chave `async` e `await` também são essenciais para a programação assíncrona em .Net. Elas não representam outra forma de programação assíncrona, mas usam as classes `Task` e `Task<T>` debaixo dos panos, simplificando a aplicação enquanto mantêm o poder que as classes Task fornecem ao programador quando necessário.
+
+### async
+
+A palavra-chave async é adicionada à assinatura do método para permitir o uso da palavra-chave await no método. Ele também instrui o compilador a criar uma máquina de estado para lidar com a assincronicidade.
+
+O tipo de retorno de um método assíncrono é sempre `Task` ou `Task<T>`.
+
+### await
+
+A palavra-chave await é usada para esperar de forma assíncrona pela conclusão de uma `Task` ou `Task<T>`.
+
+Ele pausa a execução do método atual até que a tarefa assíncrona que está sendo aguardada seja concluída. A diferença de chamar .Result ou .Wait() é que a palavra-chave await envia a thread atual de volta ao pool de threads, em vez de mantê-lo em um estado bloqueado.
+
+# Programação Web
+
+Com o crescimento do uso da internet e a facilidade de acesso a web, hoje em dia quase não se fala mais em programas desktop, ou seja, programas que instalamos nos nossos computadores. Esses programas ficam instalados nos computadores e ocupam espaço em disco, não recebem atualizações, alocam espaço em memória, e etc... 
+
+Por isso vimos um grande crescimento dos serviços disponibilizados pela Web, os SaaS ou Software as a Service. Esse tipo de aplicação web permite que um sistema ou aplicativo possa ser acessado de qualquer lugar do mundo, de qualquer dispositivo, necessitando apenas de um nagevador e acesso a internet. Toda a infraestrutura fica a cargo dos criadores do aplicativo, e atualizações e melhorias podem ocorrer no meio do dia sem nenhum impacto para os usuários.
+
+## Conceitos da programação web
+
+### API
+
+API é um conjunto de definições e protocolos usado no desenvolvimento e na integração de software de aplicações. API é um acrônimo em inglês que significa interface de programação de aplicações.
+
+Uma API permite que sua solução ou serviço se comunique com outros produtos e serviços sem precisar saber como eles foram implementados. Isso simplifica o desenvolvimento de aplicações, gerando economia de tempo e dinheiro. Ao desenvolver novas ferramentas e soluções (ou ao gerenciar aquelas já existentes), as APIs oferecem a flexibilidade necessária para simplificar o design, a administração e o uso, além de fornecer oportunidades de inovação.
+
+### REST
+
+REST não é um protocolo ou padrão, mas sim um conjunto de restrições de arquitetura. Os desenvolvedores de API podem implementar a arquitetura REST de maneiras variadas.
+
+Quando um cliente faz uma solicitação usando uma API RESTful, essa API transfere uma representação do estado do recurso ao solicitante ou endpoint.
+
+### HTTP
+
+O Hypertext Transfer Protocol, sigla HTTP (em português Protocolo de Transferência de Hipertexto) é um protocolo de comunicação utilizado para sistemas de informação de hipermídia, distribuídos e colaborativos. Ele é a base para a comunicação de dados da internet.
+
+O protocolo HTTP define oito métodos (GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS e CONNECT) que indicam a ação a ser realizada no recurso especificado. O método determina o que o servidor deve fazer com o URL fornecido no momento da requisição de um recurso. Os métodos GET e POST são os que aparecem mais comumente durante o desenvolvimento web.
+
+### JSON
+
+Em computação, JSON, um acrônimo de JavaScript Object Notation, é um formato compacto, de padrão aberto independente, de troca de dados simples e rápida (parsing) entre sistemas, que utiliza texto legível a humanos, no formato atributo-valor.
+
+---
+
+# Testes
+
+Os testes representam uma etapa de extrema importância no processo de desenvolvimento de software, pois visam validar se a aplicação está funcionando corretamente e se atende aos requisitos especificados.
+
+Nesse contexto existem diversas técnicas que podem ser aplicadas em diferentes momentos e de diferentes formas para validar os aspectos principais do software. Vamos ver algumas delas a seguir.
+
+## Testes unitários
+
+Testes de Unidade ou teste unitário é a fase de testes onde cada unidade do sistema é testada individualmente. O objetivo é isolar cada parte do sistema para garantir que elas estejam funcionando conforme especificado.
+
+Dessa forma, o desenvolvedor que fará a avaliação deve sempre pensar em quais requisitos aquela funcionalidade a ser testada tem que corresponder, qual deve ser entrada e saída de informações e, também, como funciona o processamento do fluxo daqueles dados.
+
+Este tipo de teste é da responsabilidade do próprio programador durante a implementação, isto é, após codificar uma classe por exemplo, seria executado o teste de unidade.
+
+## Teste de integração
+
+Teste de integração é a fase do teste de software em que módulos são combinados e testados em grupo. Ela sucede o teste de unidade, em que os módulos são testados individualmente, e antecede o teste de sistema, em que o sistema completo (integrado) é testado num ambiente que simula o ambiente de produção.
+
+Além desses dois tipos de teste mais comum, existem mais vários tipos de testes que podem ser aplicados em um software:
+
+**Teste de Unidade**: Teste em um nível de componente ou classe. É o teste cujo objetivo é um “pedaço do código”.
+
+**Teste de Integração**: Garante que um ou mais componentes combinados (ou unidades) funcionam. Podemos dizer que um teste de integração é composto por diversos testes de unidade.
+
+**Teste Operacional:** Garante que a aplicação pode rodar muito tempo sem falhar.
+
+**Teste Positivo-negativo**: Garante que a aplicação vai funcionar no “caminho feliz” de sua execução e vai funcionar no seu fluxo de exceção. 
+
+**Teste de Regressão**: Toda vez que algo for mudado, deve ser testada toda a aplicação novamente.
+
+**Teste de Caixa**-preta: Testar todas as entradas e saídas desejadas. Não se está preocupado com o código, cada saída indesejada é visto como um erro.
+
+**Teste Caixa-branca**: O objetivo é testar o código. Às vezes, existem partes do código que nunca foram testadas.
+
+**Teste Funcional:** Testar as funcionalidades, requerimentos, regras de negócio presentes na documentação. Validar as funcionalidades descritas na documentação (pode acontecer de a documentação estar inválida)
+
+**Teste de Interface**: Verifica se a navegabilidade e os objetivos da tela funcionam como especificados e se atendem da melhor forma ao usuário.
+
+**Teste de Performance**: Verifica se o tempo de resposta é o desejado para o momento de utilização da aplicação.
+
+**Teste de Carga**: Verifica o funcionamento da aplicação com a utilização de uma quantidade grande de usuários simultâneos.
+
+**Teste de Aceitação** do usuário: Testa se a solução será bem vista pelo usuário. Ex: caso exista um botão pequeno demais para executar uma função, isso deve ser criticado em fase de testes. (aqui, cabem quesitos fora da interface, também).
+
+**Teste de Volume**: Testar a quantidade de dados envolvidos (pode ser pouca, normal, grande, ou além de grande).
+
+**Testes de Stress**: Testar a aplicação sem situações inesperadas. Testar caminhos, às vezes, antes não previstos no desenvolvimento/documentação.
+
+**Testes de Configuração**: Testar se a aplicação funciona corretamente em diferentes ambientes de hardware ou de software.
+
+**Testes de Instalação**: Testar se a instalação da aplicação foi OK.
+
+**Testes de Segurança**: Testar a segurança da aplicação das mais diversas formas. Utilizar os diversos papéis, perfis, permissões, para navegar no sistema.
+
+## Mock
+
+Objetos mock, objetos simulados ou simplesmente mock (do inglês mock object) em desenvolvimento de software são objetos que simulam o comportamento de objetos reais de forma controlada. São normalmente criados para testar o comportamento de outros objetos. Em outras palavras, os objetos mock são objetos “falsos” que simulam o comportamento de uma classe ou objeto “real” para que possamos focar o teste na unidade a ser testada.
+
+---
+
+# SQL
+
+SQL é uma linguagem padrão para trabalhar com bancos de dados relacionais. Ela é uma linguagem declarativa e que não necessita de profundos conhecimentos de programação para que alguém possa começar a escrever queries, as consultas e pedidps, que trazem resultados de acordo com o que você está buscando. SQL significa Standard Query Language, literalmente a linguagem padrão para realizar queries.
+
+A linguagem SQL é utilizada de maneira relativamente parecida entre os principais bancos de dados relacionais do mercado: Oracle, MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, entre muitos outros. Cada um tem suas características, sendo o MySQL e o PostgreSQL extremamente populares por possuírem versões gratuitas e de código aberto.
+
+## Instalando o Oracle
+
+Para instalarmos nosso banco de dados Oracle, vamos usar o docker para fazer o download da imagem e criar um container onde vai ser hospedada nosso servidor do banco de dados.
+
+Esse comando irá fazer o download da imagem do Oracle Xe, criar um container e expor a porta 1521 para usarmos a base de dados de fora do container:
+
+> docker run -d -p 1521:1521 -e ORACLE_ALLOW_REMOTE=true --name Oracle -h Oracle oracleinanutshell/oracle-xe-11g
+
+Vamos acessar o terminal de linha de comando do container com o seguinte comando:
+
+> docker exec -it Oracle "bash"  
+
+Podemos checar o status da nossa base com o seguinte comando:
+
+> lsnrctl status
+
+Agora iremos criar uma nova "base" no Oracle, seguindo esses comandos:
+
+> /bin/sqlplus / as sysdba
+
+O usuário e senha são system e oracle respectivamente.
+
+Agora, executamos todos esses comandos para criar nossa base de teste:
+
+````
+CREATE USER AppAcademy IDENTIFIED BY AppAcademy;
+
+GRANT CREATE SESSION TO AppAcademy;
+
+GRANT CREATE VIEW TO AppAcademy;
+
+GRANT CREATE ANY TRIGGER TO AppAcademy;
+
+GRANT CREATE ANY PROCEDURE TO AppAcademy;
+
+GRANT CREATE SEQUENCE TO AppAcademy;
+
+GRANT CREATE SYNONYM TO AppAcademy;
+
+GRANT ALL PRIVILEGES TO AppAcademy;
+
+GRANT UNLIMITED TABLESPACE TO AppAcademy;
+````
+
+Para testarmos, podemos sair da sessão atual e logar no nosso novo usuário que foi criado:
+
+> /bin/sqlplus
+
+E inserir o usuário e senha AppAcademy
+
+> Para acessar os dados de uma interface gráfica, podemos instalar o [DBeaver](https://dbeaver.io/download/)
+
+## DML - Linguagem de Manipulação de Dados
+
+O primeiro grupo é a DML (Data Manipulation Language - Linguagem de manipulação de dados). DML é um subconjunto da linguagem SQL que é utilizado para realizar inclusões, consultas, alterações e exclusões de dados presentes em registros. Estas tarefas podem ser executadas em vários registros de diversas tabelas ao mesmo tempo. Os comandos que realizam respectivamente as funções acima referidas são INSERT, UPDATE e DELETE.
+
+| função     | comandos SQL | descrição do comando                                                             | exemplo                                                               |
+|------------|--------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| Inclusões  | INSERT       | é usada para inserir um registro (formalmente uma tupla) a uma tabela existente. | INSERT INTO Pessoa (id, nome, sexo) VALUE;                            |
+| Alterações | UPDATE       | para mudar os valores de dados em uma ou mais linhas da tabela existente.        | UPDATE Pessoa SET data_nascimento = '11/09/1985' WHERE id_pessoa = 7; |
+| Exclusões  | DELETE       | permite remover linhas existentes de uma tabela.                                 | DELETE FROM pessoa WHERE id_pessoa = 7;                               |
+
+## DDL - Linguagem de Definição de Dados
+
+O segundo grupo é a DDL (Data Definition Language - Linguagem de Definição de Dados). Uma DDL permite ao utilizador definir tabelas novas e elementos associados. A maioria dos bancos de dados de SQL comerciais tem extensões proprietárias no DDL.
+
+* CREATE TABLE
+* CREATE INDEX
+* CREATE VIEW
+* ALTER TABLE
+* ALTER INDEX
+* DROP INDEX
+* DROP VIEW
+* TRUNCATE TABLE
+
+## DCL - Linguagem de Controle de Dados
+
+O terceiro grupo é o DCL (Data Control Language - Linguagem de Controle de Dados). DCL controla os aspectos de autorização de dados e licenças de usuários para controlar quem tem acesso para ver ou manipular dados dentro do banco de dados.
+
+Duas palavras-chaves da DCL:
+
+* GRANT - autoriza ao usuário executar ou setar operações.
+* REVOKE - remove ou restringe a capacidade de um usuário de executar operações.
+
+## DTL - Linguagem de Transação de Dados
+
+Os comandos DTL (Data Transaction Language - Linguagem de Transação de Dados) são responsáveis por gerenciar diferentes transações ocorridas dentro de um banco de dados. 
+
+* BEGIN TRANSACTION - pode ser usado para marcar o começo de uma transação de banco de dados que pode ser completada ou não.
+* COMMIT - finaliza uma transação dentro de um sistema de gerenciamento de banco de dados.
+* ROLLBACK - faz com que as mudanças nos dados existentes desde o último COMMIT ou ROLLBACK sejam descartadas.
+
+COMMIT e ROLLBACK interagem com áreas de controle como transação e locação. Ambos terminam qualquer transação aberta e liberam qualquer cadeado ligado a dados. Na ausência de um BEGIN WORK ou uma declaração semelhante, a semântica de SQL é dependente da implementação.
+
+## DQL - Linguagem de Consulta de Dados
+
+Embora tenha apenas um comando, a DQL é a parte da SQL mais utilizada.
+
+O comando SELECT permite ao usuário especificar uma consulta como uma descrição do resultado desejado. Esse comando é composto de várias cláusulas e opções, possibilitando elaborar consultas das mais simples às mais elaboradas.
+
+## Palavras-chave em SQL
+
+### Cláusulas
+
+As cláusulas são condições de modificação utilizadas para definir os dados que deseja selecionar ou modificar em uma consulta:
+
+* FROM – Utilizada para especificar a tabela, que se vai selecionar os registros.
+* WHERE – Utilizada para especificar as condições que devem reunir os registros que serão selecionados.
+* GROUP BY – Utilizada para separar os registros selecionados em grupos específicos.
+* HAVING – Utilizada para expressar a condição que deve satisfazer cada grupo.
+* ORDER BY – Utilizada para ordenar os registros selecionados com uma ordem especifica.
+* DISTINCT – Utilizada para selecionar dados sem repetição.
+* UNION – combina os resultados de duas consultas SQL em uma única tabela para todas as linhas correspondentes.
+
+### Operadores Lógicos
+
+* AND – E lógico. Avalia as condições e devolve um valor verdadeiro caso ambos sejam corretos.
+* OR – OU lógico. Avalia as condições e devolve um valor verdadeiro se algum for correto.
+* NOT – Negação lógica. Devolve o valor contrário da expressão.
+
+### Operadores relacionais
+
+O SQL possui operadores relacionais, que são usados para realizar comparações entre valores, em estruturas de controle.
+
+| Operador | Descrição         | Comando                                                       | Exemplos                                                                                                   |
+|----------|-------------------|---------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| <        | Menor             | SELECT * FROM informacao.tabela WHERE idade < 18;             | Seleciona todos os registros na "tabela" que possuem o campo "idade" com valores menores que 18.           |
+| >        | Maior             | SELECT * FROM informacao.tabela WHERE idade > 18;             | Seleciona todos os registros na "tabela" que possuem o campo "idade" com valores maiores que 18.           |
+| <=       | Menor ou igual    | SELECT * FROM informacao.tabela WHERE idade <= 18;            | Seleciona todos os registros na "tabela" que possuem o campo "idade" com valores menores ou iguais à 18.   |
+| >=       | Maior ou igual    | SELECT * FROM informacao.tabela WHERE idade >= 18;            | Seleciona todos os registros na "tabela" que possuem o campo "idade" com valores maiores ou iguais à 18.   |
+| =        | Igual             | SELECT * FROM informacao.tabela WHERE idade = 18;             | Seleciona todos os registros na "tabela" que possuem o campo "idade" com valores exatamente iguais à 18.   |
+| <>       | Diferente         | SELECT * FROM informacao.tabela WHERE idade <> 18;            | Seleciona todos os registros na "tabela" que possuem o campo "idade" com valores que são diferentes de 18. |
+| BETWEEN  | Entre o intervalo | SELECT * FROM informacao.tabela WHERE idade BETWEEN 18 AND 21 | Seleciona todos os registros na "tabela" que possuem o campo "idade" entre 18 e 21                         |
+| LIKE     | "Parecido"        | SELECT * FROM informacao.tabela WHERE nome LIKE '%JOÃO%'      | Seleciona todos os registros na "tabela" que possuem o campo "nome" que contenha a palavra "JOÃO"          |
+| IN       | Entre os valores  | SELECT * FROM informacao.tabela WHERE idade IN (18, 19, 20)   | Seleciona todos os registros na "tabela" que possuem o campo "idade" entre os valores 18, 19 e 20          |
+
+### Funções de Agregação
+
+As funções de agregação, como os exemplos abaixo, são usadas dentro de uma cláusula SELECT em grupos de registros para devolver um único valor que se aplica a um grupo de registros:
+
+* AVG – Utilizada para calcular a média dos valores de um campo determinado.
+* COUNT – Utilizada para devolver o número de registros da seleção.
+* SUM – Utilizada para devolver a soma de todos os valores de um campo determinado.
+* MAX – Utilizada para devolver o valor mais alto de um campo especificado.
+* MIN – Utilizada para devolver o valor mais baixo de um campo especificado.
+* STDDEV - Utilizada para funções estatísticas de desvio padrão
+* VARIANCE - Utilizada para funções estatísticas de variância
+
+## Joins
+
+![joins](https://raw.githubusercontent.com/MestreDosMagros/MestreDosMagros.github.io/main/media/joins.jpg)
+
+Uma cláusula JOIN é usada para combinar linhas de duas ou mais tabelas, com base em uma coluna relacionada entre elas.
+
+* (INNER) JOIN: Retorna registros que possuem valores correspondentes em ambas as tabelas.
+* LEFT (OUTER) JOIN: Retorna todos os registros da tabela da esquerda e os registros correspondentes da tabela da direita.
+* RIGHT (OUTER) JOIN: Retorna todos os registros da tabela da direita e os registros correspondentes da tabela da esquerda.
+* FULL (OUTER) JOIN: Retorna todos os registros quando há uma correspondência na tabela da esquerda ou da direita.
+
+## Subquery
+
+Uma Subquery (também conhecida como SUBCONSULTA ou SUBSELECT) é uma instrução do tipo SELECT dentro de outra instrução SQL. Desta forma, se torna possível efetuar consultas que de outra forma seriam extremamente complicadas ou impossíveis de serem feitas de outra forma.
+
+````
+SELECT
+    *
+FROM
+    tabela1 AS T
+WHERE
+    coluna1 IN
+    (
+        SELECT
+            coluna2
+        FROM
+            tabela2 AS T2
+        WHERE
+            T.id = T2.id
+    )
+````
+
+## View
+
+A view pode ser definida como uma tabela virtual composta por linhas e colunas de dados vindos de tabelas relacionadas em uma query (um agrupamento de SELECT’s, por exemplo). As linhas e colunas da view são geradas dinamicamente no momento em que é feita uma referência a ela.
+
+````
+CREATE [OR REPLACE] VIEW view_name [(column_aliases)] AS
+    defining-query
+[WITH READ ONLY]
+[WITH CHECK OPTION]
+````
+
+Como já dito, a query que determina uma view pode vir de uma ou mais tabelas, ou até mesmo de outras views.
+
+Ao criarmos uma view, podemos filtrar o conteúdo de uma tabela a ser exibida, já que a função da view é exatamente essa: filtrar tabelas, servindo para agrupá-las, protegendo certas colunas e simplificando o código de programação.
+
+````
+CREATE VIEW employee_yos AS
+SELECT
+    employee_id,
+    first_name || ' ' || last_name full_name,
+    FLOOR( months_between( CURRENT_DATE, hire_date )/ 12 ) yos
+FROM
+    employees;
+````
+
+````
+SELECT
+    *
+FROM
+    employee_yos
+WHERE
+    yos = 15
+ORDER BY
+    full_name; 
+````
+
+## Funções
+
+Uma UDF - User Defined Function é um segmento de código preparado que pode aceitar parâmetros, processar uma lógica e retornar dados em um banco de dados.
+
+Da mesma forma que os procedimentos armazenados, as User Defined Functions desempenham um papel muito importante. Embora haja diferenças entre Stored Procedures e UDFs, as UDFs podem ser usadas para executar uma lógica complexa, podem aceitar parâmetros e retornar dados.
+
+````
+CREATE [OR REPLACE] FUNCTION function_name (parameter_list)
+    RETURN return_type
+IS
+````
+
+O resultado da função pode ser usado em instruções Select, com cláusula Where e em junções (Join).
+
+Funções UDF podem ser de dois tipos: escalares (que retornam no máximo um único valor) ou funções de conjunto, que retornam no máximo um conjunto de valores.
+
+````
+CREATE OR REPLACE FUNCTION get_total_sales(
+    in_year PLS_INTEGER
+) 
+RETURN NUMBER
+IS
+    l_total_sales NUMBER := 0;
+BEGIN
+    -- get total sales
+    SELECT SUM(unit_price * quantity)
+    INTO l_total_sales
+    FROM order_items
+    INNER JOIN orders USING (order_id)
+    WHERE status = 'Shipped'
+    GROUP BY EXTRACT(YEAR FROM order_date)
+    HAVING EXTRACT(YEAR FROM order_date) = in_year;
+    
+    -- return the total sales
+    RETURN l_total_sales;
+END;
+````
+
+````
+SELECT
+    get_total_sales(2017)
+FROM
+    dual;
+````
+
+## Stored Procedures
+
+Stored Procedure, que traduzido significa Procedimento Armazenado, é uma conjunto de comandos em SQL que podem ser executados de uma só vez, como em uma função. Ele armazena tarefas repetitivas e aceita parâmetros de entrada para que a tarefa seja efetuada de acordo com a necessidade individual.
+
+````
+CREATE [OR REPLACE] PROCEDURE procedure_name
+      [ (parameter [,parameter]) ]
+  IS
+      [declaration_section]
+  BEGIN
+      executable_section
+  [EXCEPTION
+      exception_section]
+  END [procedure_nome];
+````
+
+### Quando utilizar procedures
+
+* Quando temos várias aplicações escritas em diferentes linguagens, ou rodam em plataformas diferentes, porém executam a mesma função.
+* Quando damos prioridade à consistência e segurança.
+
+## Packages
+
+Packages ou Pacotes (em português), por sua vez, são objetos PL/SQL utilizados para agrupar os seguintes componentes, quando houver relação entre eles:
+
+* Tipos PL/SQL;
+* Variáveis, estruturas de dados e exceções;
+* Stored Procedures e Functions;
+
+````
+CREATE [OR REPLACE] PACKAGE package_name
+[ AUTHID { CURRENT_USER | DEFINER } ]
+{ IS | AS }
+   [definitions of public TYPES
+   ,declarations of public variables, types, and objects
+   ,declarations of exceptions
+   ,pragmas
+   ,declarations of cursors, procedures, and functions
+   ,headers of procedures and functions]
+END [package_name];
+````
+
+---
+
+# Acesso ao banco de dados com C#
+
+O .Net oferece nativamente uma interface genérica para controle de acesso a dados (ADO.NET), o que torna muito simples implementar e oferecer suporte para vários tipos de bancos de dados. 
+
+Cada empresa, ou comunidade, desenvolve e disponibiliza essa implementação através do nuget para que outros desenvolvedores possam usa-las.
+
+Alguns exemplos de clientes suportados são:
+
+* SQL Server;
+* PostgreSQL;
+* MySQL;
+* SQLite;
+* MongoDB;
+* RavenDB;
+* Redis;
+* Cassandra;
+
+## Connection String
+
+Uma Connection String, ou string de conexão, é o caminho que passamos para nossa aplicação achar o nosso servidor de banco de dados. Ela contém vários parâmetros, como usuário, senha, porta, protocolos e etc... 
+
+Cada banco de dados segue um próprio padrão de connection strings, nós iremos usar uma parecida com essa:
+
+````
+Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XE)));User Id=AppAcademy;Password=AppAcademy;
+````
+
+## Tipo de acessos
+
+> Para acessarmos nosso BD, iremos usar uma biblioteca chamada "Oracle.ManagedDataAccess.Core"
+
+### Manual
+
+O jeito mais performático de performarmos operações num banco de dados através de uma aplicação, é usando sua biblioteca nativa diretamente no código. Isso faz com que existam menos camadas de código até chegarmos no BD e nos proporciona um controle maior, mas essa abordagem pode levar a muitas linhas de código.
+
+Exemplo:
+
+````
+using System;
+using Oracle.ManagedDataAccess.Client;
+
+namespace SimpleDataAccess
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+
+                var connectionString = @"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XE)));User Id=AppAcademy;Password=AppAcademy;";
+                
+                using (var conn = new OracleConnection(connectionString))
+                {
+                    conn.Open();
+
+                    using (var cmd = new OracleCommand(@"select sysdate from dual", conn))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Console.WriteLine("Data do servidor de banco de dados: " + Convert.ToDateTime(reader["sysdate"]));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+    }
+}
+
+````
+
+### Micro ORM (Dapper)
+
+Um Micro ORM (object relacional mapper) é uma biblioteca que nos ajuda com o mapeamento dos objetos do banco de dados, para objetos do nosso domínio.
+
+Considere que temos uma tabela chamada Pessoas, com a seguinte estrutura, que é igual a representada no nosso domínio:
+
+````
+CREATE TABLE Pessoas
+(
+	Nome VARCHAR2(100) NOT NULL,
+	Idade INT NOT NULL,
+	Documento VARCHAR2(14)
+);
+````
+
+Com o modelo usado anteriormente, nosso código de consulta, ficaria mais ou menos assim:
+
+````
+using System;
+using Oracle.ManagedDataAccess.Client;
+
+namespace SimpleDataAccess
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+
+                var connectionString = @"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XE)));User Id=AppAcademy;Password=AppAcademy;";
+                
+				var pessoas = new List<Pessoa>();
+
+                using (var conn = new OracleConnection(connectionString))
+                {
+                    conn.Open();
+
+                    using (var cmd = new OracleCommand(@"select * from pessoas", conn))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var pessoa = new Pessoa 
+                            {
+                                Nome = reader["NOME"],
+                                Documento = reader["DOCUMENTO"],
+                                Idade = Convert.ToInt32(reader["IDADE"]),
+                            }
+							
+							pessoas.Add(pessoa);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+    }
+}
+
+````
+
+Quando usamos um ORM, como o Dapper, o nosso código fica muito mais limpo e menor, e com muito pouco prejuízo em questão de performance da aplicação:
+
+````
+using System;
+using Dapper;
+using Oracle.ManagedDataAccess.Client;
+
+namespace DapperDataAccess
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+
+                var connectionString = @"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XE)));User Id=AppAcademy;Password=AppAcademy;";
+                var conn = new OracleConnection(connectionString);
+                var pessoas = conn.Query<Pessoa>("select * from pessoas");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
+    }
+}
+````
+
+### ORM (Entity Framework)
+
+O Entity Framework é o ORM mais utilizado e conhecido do mundo .Net. Ele nos permite mapear, manter, e trabalhar com nossa base de dados sem nem mesmo usar o SQL.
+
+Com o sistema de migrations, a base e seus objetos são criados automaticamente conforme a configuração feita no C#.
+
+Um exemplo de como usar o EF Core:
+
+Primeiro precisamos implementar o `contexto` da nossa aplicação, herdando da classe DbContext do EF Core:
+
+````
+using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
+
+namespace EFCoreDataAccess
+{
+    public class AppContext : DbContext
+    {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseOracle(@"Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=XE)));User Id=test_db;Password=test_db;");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Pessoa>()
+                        .HasKey(c => c.Id);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public DbSet<Pessoa> Pessoas { get; set; }
+    }
+}
+````
+
+A nossa entidade:
+
+````
+public class Pessoa
+{
+    public Guid Id { get; set; }
+    public int Idade { get; set; }
+    public string Nome { get; set; }
+    public string Documento { get; set; }
+}
+````
+
+Após rodar os comandos `Add-Migration` e `Update-Database`, podemos listar todos as pessoas desse jeito:
+
+````
+using System;
+using System.Linq;
+
+namespace EFCoreDataAccess
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            using (var context = new AppContext())
+            {
+                var pessoas = context.Pessoas.ToList();
+            }
+        }
+    }
+}
+````
+---
+
+# Padrões e boas práticas de desenvolvimento de software
+
+## DDD (Domain Driven Design)
+
+É um conjunto de princípios com foco em domínio, exploração de modelos de formas criativas e definir e falar a linguagem Ubíqua, baseado no contexto delimitado.
+
+### Os 3 princípios do DDD
+
+Antes de percorrermos com mais detalhes os principais pontos do DDD, é fundamental que consigamos entender de forma clara seus três pilares e como os mesmos têm relação entre si.
+
+Domínio é o coração do negócio em que você está trabalhando. É baseado em um conjunto de ideias, conhecimento e processos de negócio. É a razão do negócio existir. Sem o domínio todo o sistema, todos os processos auxiliares, não servirão para nada.
+
+Se uma empresa existe, é porque ela tem um core business e, normalmente, esse core business é composto pelo domínio principal.
+
+### Exploração de Modelos e Formas Criativas
+
+Quando falamos em DDD, não falamos apenas em desenvolver um software, mas sim em entender a modelagem do projeto como um todo. Se você não souber modelar o software, não conseguirá fazê-lo crescer e ser mantido a médio e longo prazo.
+
+O DDD preza que os desenvolvedores façam parte do processo, entendendo o negócio e todos os seus modelos nos diferentes ângulos e não somente participando de reuniões com especialistas.
+
+### Linguagem Ubíqua
+
+Um dos pontos mais importantes do DDD, onde 99% das pessoas acabam ignorando, que é falar e extrair a linguagem Ubíqua.
+
+Linguagem Ubíqua é a linguagem falada no dia dia, no contexto da empresa. É a linguagem que utiliza as terminologias da realidade do negócio.
+
+## Clean Code
+
+O Clean Code, não é um design pattern de arquitetura propriamente dito, e mais um conjunto de boas
+ práticas que temos podemos seguir para manter a escalabilidade, confiabilidade e reduzir custos de manutenção dos nossos sistemas.
+
+Como relatado por Robert C. Martin em seu livro clássico, Clean Code, um Best Seller da nossa área, algumas práticas e visões são importantíssimas para mantermos a vida do nosso software.
+
+Dentre muitas recomendações, podemos listar algumas:
+
+* Siga as convenções: Siga sempre os padrões do projeto;
+* KISS: Mantenha isto estupidamente simples;
+* Regra do escoteiro: Deixe sempre o acamapamento mais limpo do que você encontrou;
+* Causa raiz: Sempre procure a causa raiz do problema;
+
+## SOLID
+
+1. S — Single Responsiblity Principle (Princípio da responsabilidade única)
+1. O — Open-Closed Principle (Princípio Aberto-Fechado)
+1. L — Liskov Substitution Principle (Princípio da substituição de Liskov)
+1. I — Interface Segregation Principle (Princípio da Segregação da Interface)
+1. D — Dependency Inversion Principle (Princípio da inversão da dependência)
+
+Esses princípios ajudam o programador a escrever códigos mais limpos, separando responsabilidades, diminuindo acoplamentos, facilitando na refatoração e estimulando o reaproveitamento do código.
+
+### 1. SRP - Single Responsibility Principle:
+
+Princípio da Responsabilidade Única — Uma classe deve ter um, e somente um, motivo para mudar.
+
+### 2. OCP - Open-Closed Principle:
+
+Princípio Aberto-Fechado — Objetos ou entidades devem estar abertos para extensão, mas fechados para modificação, ou seja, quando novos comportamentos e recursos precisam ser adicionados no software, devemos estender e não alterar o código fonte original.
+
+### 3. LSP - Liskov Substitution Principle:
+
+Princípio da substituição de Liskov — Uma classe derivada deve ser substituível por sua classe base.
+
+### 4. ISP - Interface Segregation Principle:
+
+Princípio da Segregação da Interface — Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar.
+
+### 5. DIP - Dependency Inversion Principle:
+
+Princípio da Inversão de Dependência — Dependa de abstrações e não de implementações.
+
+## CQRS
+
+CQRS significa Separação das Operações de Comando e de Consulta, um padrão que separa as operações de leitura e atualização para um armazenamento de dados. Implementar o CQRS em seu aplicativo pode maximizar seu desempenho, escalabilidade e segurança. A flexibilidade criada migrando para o CQRS permite que um sistema evolua melhor ao longo do tempo e impede que os comandos de atualização causem conflitos de mesclagem no nível de domínio.
+
+**Dentre muitos outros patterns, podemos ressaltar mais alguns:**
+
+* Mediator;
+* Factory;
+* Repository;
+* Facade;
+* Proxy;
+
+# Tópicos avançados
+
+// TODO: AQUI
+- Tipos genéricos;
+- Reflection;
+- Cache (Download imagem Redis);
+- Mensageria (Download imagem RabbitMq);
+- Benchmark;
+- Microserviços;
