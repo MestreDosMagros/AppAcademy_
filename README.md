@@ -15,6 +15,7 @@
 [13. Criando APIs com banco de dados relacional](#Acesso-ao-banco-de-dados-com-C#)   
 [14. Padrões e boas práticas de desenvolvimento de software](#Padrões-e-boas-práticas-de-desenvolvimento-de-software)  
 [15. Tópicos avançados](#Tópicos-avançados)  
+[16. Plano de aula](#Plano-de-aula)
 
 ---
 
@@ -3617,6 +3618,288 @@ CQRS significa Separação das Operações de Comando e de Consulta, um padrão 
 # Tópicos avançados
 
 // TODO: AQUI
+- Tipos genéricos;
+- Reflection;
+- Cache (Download imagem Redis);
+- Mensageria (Download imagem RabbitMq);
+- Benchmark;
+- Microserviços;
+
+---
+
+# Plano de aula
+
+#### Carga horária total: 378 horas
+
+## Introdução
+
+- Apresentação;
+- Como funciona um computador:
+    - Portas lógicas;
+    - Processos sequenciais;
+    - Input/Output;
+- Sistema binário:
+    - Diferenças entre o sistema decimal e binário;
+    - Representação de dados no sistema binário:
+        - Caracteres;
+        - Imagem;
+        - Vídeo;
+- Algoritimos:
+    - O que é um algorítimo;
+
+## Introdução ao C# e .Net
+
+- O C#;
+- O .Net;
+- Compilador / IL;
+- Codigo gerenciado (GC);
+- Frameworks (.Net Core, .Net Framework, .Net Standard);
+- Futuro do .Net;
+- CLI; (Download - https://dotnet.microsoft.com/download/dotnet/3.1)
+- IDE's 
+    - Visual Studio; (Download - https://visualstudio.microsoft.com/pt-br/downloads/)
+    - Visual Studio Code; (Download - https://code.visualstudio.com/download)
+
+## Github    
+- Git for windows (Download - https://windows.github.com);
+- Comandos Git (https://training.github.com/downloads/pt_BR/github-git-cheat-sheet.pdf):
+    - git config;
+    - git init;
+    - git clone;
+    - git status;
+    - git diff;
+    - git add [arquivo];
+    - git commit -m "[mensagem]"
+    - git branch
+    - git branch [nome-do-branch
+    - git checkout [nome-do-branch]
+    - git merge [branch]
+    - git stash;
+    - git stash pop;
+    - git fetch [marcador];
+    - git push [alias] [branch];
+    - git pull;
+- Gitflow;
+    - Flow (Master, Development, Release);
+    - Feature;
+    - Hotfix;
+    - Bugfix;
+    - Tag;
+- GitKraken (Download - https://www.gitkraken.com/download);
+
+## Lógica de programação
+
+- Variáveis:
+    - Tipos de variáveis:
+        Variáveis estáticas;
+        Variáveis de instância;
+        Elementos de matriz;
+        Parâmetros de valor;
+        Parâmetros de referência;
+        Parâmetros de saída;
+        Variáveis locais;
+- Operadores:
+    - Operadores lógicos;
+    - Operadores aritiméticos;
+    - Operadores de igualdade;
+    - Operadores de comparação;
+    - Operadores ternários;
+- Instruções:
+    - Instruções de seleção / condicionais:
+        - if;
+        - else;
+        - else if;
+        - switch;
+    - Instruções de iteração / Laços de repetição:
+        - for;
+        - while;
+        - do-while;
+        - foreach;
+    - Instruções de atalho 
+        - return;
+        - continue;
+        - break;
+    - Tratamentos de exceções
+        - throw;
+        - try-catch;
+        - try-finally;
+        - try-catch-finally; 
+
+## Tipos de dados
+
+- Char
+    - Trabalhando com char;
+    - Conversores (Parse, TryParse, Convert);
+    - Representação binária;
+- String
+    - Trabalhando com strings;
+- Integer
+    - Trabalhando com inteiros;
+    - Conversores (Parse, TryParse, Convert);
+- Decimal;
+    - Trabalhando com decimais;
+    - Conversores (Parse, TryParse, Convert);
+- Double;
+    - Trabalhando com doubles;
+    - Conversores (Parse, TryParse, Convert);
+- Byte;
+    - Trabalhando com bytes;
+- DateTime;   
+    - Trabalhando com datas;
+    - Conversores;
+    - ToString();            
+- Array;
+    - Trabalhando com arrays;
+    - Tipos de arrays (1D, 2D);
+    - Iterando um array;
+- Null:
+    - Perigos;
+    - Tipos nullables;
+    - NullReferenceException;    
+- Tipos de valor;
+- Tipos de referência;
+- Palavras-chave;
+- Acessibilidade:
+    - Público;
+    - Privado;
+    - Interno;
+
+## Funções
+
+- Estrutura de um programa .Net;
+    - Namespaces;
+    - Classe;
+    - Método Main;
+- Declaração;
+- Parâmetros:
+    - Passando por referência;
+    - Passando por valor;
+    - Parâmetros de entrada (in);
+    - Parâmetros de saída (out);
+- Extension methods;
+
+## Orientação a objetos (OOP)
+
+- Paradigmas de programação;
+- Classes;
+- Herança;
+- Encapsulamento;
+- Polimorfismo;
+- Abstração;
+
+## Listas
+
+- IEnumerable<T>, List<T>, Collection<T>, ReadonlyCollection<T>:
+    - Diferenças entre interfaces de lista;
+    - Quando usar / não usar;
+- Trabalhando com listas;
+- LINQ:
+    - Where;
+    - Any;
+    - First;
+    - SingleOrDefault; 
+    - FirstOrDefault;
+    - Count;
+    - GroupBy;
+    - Select;
+    - Contains;
+	- Performance;
+
+## Programação assíncrona
+
+- Tasks;
+- Async e Await;
+- Paralelismo:
+    - Parallel library:
+        - Parallel For;
+        - Parallel Foreach;
+    - Task collection:
+        - WaitAll;
+        - WhenAll;
+- CancelationTokens;
+
+## Programação Web
+
+- Conceitos:
+    - REST;
+    - HTTP;
+    - API;
+    - JSON;
+- Postman;
+- Consumo de web services;
+- Construção de APIs:
+    - Boas práticas;
+    - Autenticação;
+    - Cache;
+    - Tratamento de erros;
+    - Resiliência;
+    - Rate limit;
+	- Logging;
+- Background Jobs:
+    - Hangfire;
+	- WorkerServices;
+
+## Testes
+
+- Testes unitários;
+- Teste de integração;
+- xUnit;
+- nUnit;
+- Mock;
+
+## SQL
+
+- Docker
+    - Docker desktop (Dowload - https://www.docker.com/products/docker-desktop)
+    - Docker pull (Dowload imagem do Oracle);
+- DML - Linguagem de Manipulação de Dados;
+- DDL - Linguagem de Definição de Dados;
+- DCL - Linguagem de Controle de Dados;
+- DTL - Linguagem de Transação de Dados;
+- DQL - Linguagem de Consulta de Dados;
+- Palavras-chave em SQL:
+    - Cláusulas;
+    - Operadores Lógicos;
+    - Operadores relacionais;
+    - Funções de Agregação;
+- Joins:
+    - LEFT JOIN;
+    - RIGHT JOIN;
+- Subquery;
+- View;
+- Funções;
+- Stored Procedures;
+- Packages;
+
+## Acesso ao banco de dados com C#
+
+- Acesso com ADO.NET;
+- Dapper;
+- Entity Framework:
+    - Migrations;
+    - Fluent mapping;
+- Criação de APIs:
+    - Repository;
+	- Unity of Work;
+
+## Padrões e boas práticas de desenvolvimento de software
+
+- DDD;
+- Clean Code;
+- SOLID;
+- CQRS;
+- Design Patterns:
+    - Mediator;
+    - Factory;
+    - Injeção de dependência;
+    - Repository;
+    - Facade;
+    - Proxy;
+    - Notification;
+    ...
+
+## Tópicos avançados
+
 - Tipos genéricos;
 - Reflection;
 - Cache (Download imagem Redis);
