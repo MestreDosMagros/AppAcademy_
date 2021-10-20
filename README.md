@@ -3615,15 +3615,367 @@ CQRS significa Separação das Operações de Comando e de Consulta, um padrão 
 * Facade;
 * Proxy;
 
+---
+
 # Tópicos avançados
 
-// TODO: AQUI
-- Tipos genéricos;
-- Reflection;
-- Cache (Download imagem Redis);
-- Mensageria (Download imagem RabbitMq);
-- Benchmark;
-- Microserviços;
+## Tipos genéricos
+
+Os genéricos permitem que você personalize um método, uma classe, uma estrutura ou uma interface para o tipo exato de dados no qual ele atua. Por exemplo, em vez de usar a classe , que permite que chaves e valores sejam de qualquer tipo, você pode usar a classe genérica e especificar os tipos permitidos para a chave e o valor. Entre os benefícios de genéricos estão maior reutilização de códigos e segurança de tipos.
+
+````
+public class Generic<T>
+{
+    public T Field;
+}
+````
+
+Quando você cria uma instância de uma classe genérica, pode especificar os tipos reais para substituir os parâmetros de tipo. Isso estabelece uma nova classe genérica, conhecida como uma classe genérica construída, com seus tipos escolhidos substituídos em todos os locais em que aparecem os parâmetros de tipo.
+
+````
+using System;
+
+namespace AppAcademy
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			Generic<string> g = new Generic<string>();
+			g.Field = "A string";			
+			Console.WriteLine("Generic.Field           = \"{0}\"", g.Field); // Saída: eric.Field = "A string"
+			Console.WriteLine("Generic.Field.GetType() = {0}", g.Field.GetType().FullName); // Saída: Generic.Field.GetType() = System.String
+		}
+	}
+}
+````
+
+## Reflection
+
+A reflexão fornece objetos (do tipo Type) que descrevem assemblies, módulos e tipos. É possível usar a reflexão para criar dinamicamente uma instância de um tipo, associar o tipo a um objeto existente ou obter o tipo de um objeto existente e invocar seus métodos ou acessar suas propriedades e campos. Se você estiver usando atributos em seu código, a reflexão permite acessá-los.
+
+````
+using System;
+
+namespace AppAcademy
+{
+	public static class Program
+	{
+		public static void Main()
+		{
+			int i = 42;
+			Type type = i.GetType();
+			Console.WriteLine(type); // Saída: System.Int32
+		}
+	}
+}
+````
+
+A reflexão é útil nas seguintes situações:
+
+* Quando você precisa acessar atributos nos metadados do seu programa. Para obter mais informações, consulte Recuperando informações armazenadas em atributos.
+* Para examinar e instanciar tipos em um assembly.
+* Para criar novos tipos em runtime. Usar as classes em System.Reflection.Emit.
+* Para executar a associação tardia, acessar métodos em tipos criados em tempo de execução.
+
+````
+using System;
+
+namespace AppAcademy
+{
+	public class Pessoa
+	{
+		public Guid Id { get; set; }
+		public int Idade { get; set; }
+		public string Nome { get; set; }
+		public string Documento { get; set; }
+	}
+	
+	public static class Program
+	{
+		public static void Main()
+		{
+			var p = new Pessoa
+			{
+				Id = Guid.NewGuid(),
+				Idade = 23,
+				Nome = "Daniel",
+				Documento = "000000000"				
+			};
+			
+			foreach(var prop in p.GetType().GetProperties())				
+			{
+				Console.WriteLine($"{prop.Name}: {prop.GetValue(p)}");
+			}
+		}
+
+		/*
+		Saída:
+		Id: 18f2a777-9864-4504-bb12-72d3ee979419
+		Idade: 23
+		Nome: Daniel
+		Documento: 000000000
+		*/
+	}
+}
+````
+
+## Delegates
+
+Um delegado é um tipo que representa referências aos métodos com lista de parâmetros e tipo de retorno específicos. Ao instanciar um delegado, você pode associar sua instância a qualquer método com assinatura e tipo de retorno compatíveis. Você pode invocar (ou chamar) o método através da instância de delegado.
+
+Delegados são usados para passar métodos como argumentos a outros métodos. Os manipuladores de eventos nada mais são do que métodos chamados por meio de delegados.
+
+````
+using System;
+
+namespace AppAcademy
+{
+	public delegate void SimplesDelegate();
+	public class Program
+	{
+		public static void minhaFuncao()
+		{
+			Console.WriteLine("Eu fui chamada por um delegate ...");
+		}
+
+		public static void Main()
+		{
+			SimplesDelegate simplesDelegate = new SimplesDelegate(minhaFuncao);
+			simplesDelegate(); // Saída: Eu fui chamada por um delegate...
+		}
+	}
+}
+````
+
+## Cache
+
+### Redis
+
+Banco de dados NOSQL do tipo chave-valor, o Redis é uma alternativa open source extremamente popular entre Desenvolvedores Web. Um dos usos mais comuns desta tecnologia consiste na implementação de cache distribuído (algo essencial em cenários envolvendo a necessidade de escalar uma aplicação), valendo-se para isto da excelente performance em operações de leitura oferecida pelo Redis (graças ao armazenamento de dados em memória).
+
+Para instalarmos o Redis no nosso ambiente individual, vamos usar o Docker, basta executar o comando:
+
+````
+docker run -d --name Redis -p 6379:6379 redis:latest
+````
+
+Exemplo de uso:
+
+````
+using System;
+using StackExchange.Redis;
+using System.Threading.Tasks;
+
+namespace Redis
+{
+    public class Program
+    {
+        static readonly ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(
+           new ConfigurationOptions
+           {
+               EndPoints = { "localhost:6379" }
+           });
+
+        static async Task Main(string[] args)
+        {
+            var db = redis.GetDatabase();
+            db.StringSet("A", "B");
+            var res = db.StringGet("A");
+            Console.WriteLine(res); // Saída: B
+        }
+    }
+}
+````
+
+Podemos acessar diretamente a base do Redis dentro do nosso container usando o comando:
+
+````
+ docker exec -it Redis "bash"
+````
+
+E após o acesso, usamos a ferramenta de [cli](https://redis.io/topics/rediscli) do Redis:
+
+````
+redis-cli;
+
+set A B;
+
+get A;
+
+del A;
+
+exit
+````
+
+## Mensageria
+
+### RabbitMQ
+
+O RabbitMQ é o servidor de mensageria open-source mais famoso atualmente, sendo utilizado por empresas de todos os tamanhos.
+
+Ele é desenvolvido em Erlang, e utiliza o protocolo AMQP para suporte a mensagens. Assim como o conceito de mensageria no geral, ele ajuda aplicações escalarem seu processamento através do processamento assíncrono das mensagens que são publicadas nele. Dentre as suas características e funcionalidades, encontra-se:
+
+* Tópicos;
+* Dead-letter queues
+* Agendamento de entregas
+* Envio em batch (ou lotes)
+* Transações
+* Deduplicação
+
+Alguns conceitos a respeito de mensageira são essenciais para que se possa entender o RabbitMQ, e como ocorre o processamento de mensagens.
+
+> Mensagem: são um bloco de dados, em formato binário. Uma mensagem pode conter dados em diferentes formatos, como texto, JSON, XML, etc.  
+
+> Fila: armazena diversas mensagens enquanto o cliente ou consumidor delas não as retira dela. Em uma fila, uma mensagem não pode ser processada mais de uma vez. Imagine como se fosse uma carta normal, indo para sua caixa de correio.
+
+> Tópico: semelhante a uma fila, porém permite envio de cópias de mensagens a diferentes clientes (ou assinantes). 
+
+O fluxo, de maneira resumida, é o seguinte:
+
+1. Uma mensagem é publicada em uma fila, sendo armazenada ali até que algum cliente a consuma;
+
+2. Um cliente da fila solicita a próxima mensagem dela, a retirando da fila e processando;
+
+3. Em caso de erro no processamento (e dependendo da configuração sobre reconhecimento, ou acknowledgement), a mensagem deve ser devolvida.
+
+### Filas no RabbitMQ
+
+A fila no RabbitMQ tem algumas características, que são importantes de se entender:
+
+> Durável: se sim, metadados dela são armazenados no disco e poderão ser recuperados após o reinício do nó do RabbitMQ. Além disso, em caso de mensagens persistentes, estas são restauradas após o reinício do nó junto a fila durável. Em caso de uma mensagem persistente em uma fila não-durável, ela ainda será perdida após reiniciar o RabbitMQ.
+
+> Auto-Delete: se sim, a fila vai ser apagada caso, após um consumer ter se conectado, todos se desconectaram e ela ficar sem conexões ativas.
+
+> Exclusiva se sim, apenas uma conexão será permitida a ela, e após esta encerrar, a fila é apagada.
+
+Outros conceitos importantes de se entender são os de Exchange e Routing Key.
+
+> Exchange: são agentes responsáveis por rotear as mensagens para filas, utilizando atributos de cabeçalho, routing keys, ou bindings.
+
+> Routing Key: funciona como um relacionamento entre um Exchange e uma fila, descrevendo para qual fila a mensagem deve ser direcionada.
+
+Para instalar o servidor do RabbitMQ no nosso ambiente individual, vamos novamente usar o Docker, basta executar o comando:
+
+````
+docker run -d --name RabbitMQ -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
+````
+
+Após a instalação, conseguimos vizualizar a GUI do Rabbit no endereço: `http://localhost:15672` e podemos fazer o login com o usuário e senha `guest`.
+
+Exemplo de envio e consumo de mensagem:
+
+> Envio
+
+````
+var factory = new ConnectionFactory() {HostName = "localhost"};
+using (var connection = factory.CreateConnection())
+using (var channel = connection.CreateModel())
+{
+	channel.ExchangeDeclare(exchange: "mensagens", type: ExchangeType.Fanout);
+
+	var message = $"Mensagem {counter}";
+	var body = Encoding.UTF8.GetBytes(message);
+
+	channel.BasicPublish(exchange: "mensagens", routingKey: "", basicProperties: null, body: body);
+
+	Console.WriteLine($"Enviada a mensagem: {message}");
+
+	counter++;
+}
+````
+
+> Consumo
+
+````
+var factory = new ConnectionFactory() { HostName = "localhost" };
+
+using(var connection = factory.CreateConnection())
+using(var channel = connection.CreateModel())
+{
+    channel.ExchangeDeclare(exchange: "mensagens", type: ExchangeType.Fanout);
+    channel.QueueDeclare(queue: "mensagens", durable: false, exclusive: false, autoDelete: false, arguments: null);
+	channel.QueueBind(queue: "mensagens", exchange: "mensagens", routingKey: "");
+
+    var consumer = new EventingBasicConsumer(channel);
+	consumer.Received += (model, ea) =>
+    {
+        var body = ea.Body.ToArray();
+        var message = Encoding.UTF8.GetString(body);
+        Console.WriteLine($"Recebida a mensagem: {message}");
+    };
+    
+	channel.BasicConsume(queue: queueName, autoAck: true, consumer: consumer);
+````
+
+## Benchmark
+
+A razão pela qual fazemos benchmarking é que antes que possamos e devemos começar a otimizar o código, devemos primeiro entender nossa posição atual. Isso é fundamental para validarmos que nossas mudanças estão tendo o impacto que desejamos e, o mais importante, não piorando nosso desempenho. 
+
+Um benchmark é simplesmente uma medida ou conjunto de medidas relacionadas à execução de algum código. Os benchmarks permitem comparar o desempenho relativo do código conforme você começa a fazer esforços para melhorar o desempenho. Um benchmark pode ter um escopo bastante amplo ou, como costuma acontecer, você pode se ver testando pequenas mudanças nos micro-benchmarks. O principal é garantir que você tenha um mecanismo para comparar as alterações propostas com o código original que, então, guiará seu trabalho de otimização. É importante usar dados, não suposições ao otimizar o código.
+
+No .Net, a biblioteca mais famosa para fazermos nossos benchmarks é a `BenchmarkDotNet`.
+
+Exemplo de benchmark de código:
+
+````
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+using System;
+using System.Linq;
+
+namespace Benchmark
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            var summary = BenchmarkRunner.Run<MeuBenckmark>();
+        }
+    }
+
+    [MemoryDiagnoser]
+    public class MeuBenckmark
+    {
+        public static Random _rdn = new Random();
+        public int[] _data;
+
+
+        [GlobalSetup]
+        public void GlobalSetup()
+        {
+            _data = new int[1_000_000_000];
+
+            for (int i = 0; i < 1_000_000_000; i++)
+                _data[i] = _rdn.Next(int.MinValue, int.MaxValue);
+        }
+
+        [Benchmark]       
+        public int[] OrderWithFor()
+        {
+            var arr = _data;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                if (arr[i] > arr[i + 1])
+                {
+                    int tmp = arr[i + 1];
+                    arr[i + 1] = arr[i];
+                    arr[i] = tmp;
+                }
+            }
+            return arr;
+        }
+
+        [Benchmark]
+        public int[] OrderWithLinq()
+        {
+            var arr = _data;
+            arr.ToList().Sort();
+            return arr;
+        }
+    }
+}
+````
 
 ---
 
@@ -3902,7 +4254,7 @@ CQRS significa Separação das Operações de Comando e de Consulta, um padrão 
 
 - Tipos genéricos;
 - Reflection;
-- Cache (Download imagem Redis);
-- Mensageria (Download imagem RabbitMq);
+- Delegates
+- Cache (Redis);
+- Mensageria (RabbitMQ);
 - Benchmark;
-- Microserviços;
