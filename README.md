@@ -3977,6 +3977,149 @@ namespace Benchmark
 }
 ````
 
+## gRPC
+
+O gRPC é um framework do Google que implementa RPC, e tem inúmeras vantagens para a escolha do gRPC.
+
+> Principais vantagens
+
+* Desenvolvimento de API Contract-first, com Protocol Buffer por padrão;
+* Disponível em mais de 10 linguagens de programação;
+* Suporte a chamadas streaming do cliente para o servidor, do servidor para cliente e bidirecional (falarei mais deste assunto);
+* Reduz a utilização da rede, latência, pois os dados são trafegados em binário;
+* Utiliza o protocolo HTTP2;
+
+### Protocol Buffer
+
+Protocol buffer ou protobuf é um método criado pelo Google de serialização de dados estruturados, agnóstico de linguagem. A transferência de dados chega a ser até 6x mais rápida que um JSON. O gRPC utiliza o arquivo com extensão .proto para criar o código base, garantindo o Contract-first.
+A serialização/deserialização faz um uso menos intensivo da CPU pelo fato das mensagens estarem em formato binário, ou seja, mais próximo de como o computador representa os dados.
+
+O .Net dá suporte nativo para criação de APIs que usam o gRPC para o tráfego de dados.
+
+Exemplo de serviço em C#:
+
+````
+using Grpc.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+namespace Grpc
+{
+    public class Startup
+    {
+        // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddGrpc(opt => {
+                opt.EnableDetailedErrors = true;
+            });
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGrpcService<GreeterService>();
+                endpoints.MapGrpcService<CalculoService>();
+
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
+                });
+            });
+        }
+    }
+}
+````
+
+> proto
+
+````
+syntax = "proto3";
+
+option csharp_namespace = "Grpc";
+
+package calculos;
+
+service Calculos {
+  rpc Sum (SumRequest) returns (Result);
+  rpc Subtract (SubtractRequest) returns (Result);
+}
+
+message SumRequest {
+  int32 val1 = 1;
+  int32 val2 = 2;
+}
+
+message SubtractRequest {
+  int32 val1 = 1;
+  int32 val2 = 2;
+}
+
+message Result {
+  int32 result = 1;
+}
+
+````
+
+> Service
+
+````
+using Grpc.Core;
+using Microsoft.Extensions.Logging;
+using System.Threading.Tasks;
+
+namespace Grpc.Services
+{
+    public class CalculoService : Calculos.CalculosBase
+    {
+        private readonly ILogger<GreeterService> _logger;
+
+        public CalculoService(ILogger<GreeterService> logger)
+        {
+            _logger = logger;
+        }
+
+        public override Task<Result> Subtract(SubtractRequest request, ServerCallContext context)
+        {
+            return Task.FromResult(new Result
+            {
+                Result_ = request.Val1 - request.Val2
+            });
+        }
+
+        public override Task<Result> Sum(SumRequest request, ServerCallContext context)
+        {
+            return Task.FromResult(new Result
+            {
+                Result_ = request.Val1 + request.Val2
+            });
+        }
+    }
+}
+````
+
+> csproj
+
+````
+ <ItemGroup>
+    <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\calculo.proto" GrpcServices="Server" />
+  </ItemGroup>
+````
+
 ---
 
 # Plano de aula
@@ -4258,3 +4401,4 @@ namespace Benchmark
 - Cache (Redis);
 - Mensageria (RabbitMQ);
 - Benchmark;
+- gRPC;
