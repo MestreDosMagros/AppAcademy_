@@ -4120,6 +4120,94 @@ namespace Grpc.Services
   </ItemGroup>
 ````
 
+## Docker
+
+A tecnologia Docker usa o kernel do Linux e recursos do kernel como Cgroups e namespaces para segregar processos. Assim, eles podem ser executados de maneira independente. O objetivo dos containers é criar essa independência: a habilidade de executar diversos processos e aplicações separadamente para utilizar melhor a infraestrutura e, ao mesmo tempo, manter a segurança que você teria em sistemas separados.
+
+As ferramentas de container, incluindo o Docker, fornecem um modelo de implantação com base em imagem. Isso facilita o compartilhamento de uma aplicação ou conjunto de serviços, incluindo todas as dependências deles em vários ambientes. O Docker também automatiza a implantação da aplicação (ou de conjuntos de processos que constituem uma aplicação) dentro desse ambiente de container.
+
+### As vantagens dos containers Docker
+
+> Modularidade
+
+A abordagem do Docker para a containerização se concentra na habilidade de desativar uma parte de uma aplicação, seja para reparo ou atualização, sem interrompê-la totalmente. Além dessa abordagem baseada em microsserviços, é possível compartilhar processos entre várias aplicações da mesma maneira como na arquitetura orientada a serviço (SOA).
+
+> Camadas e controle de versão de imagens
+
+Cada arquivo de imagem Docker é composto por uma série de camadas. Elas são combinadas em uma única imagem. Uma nova camada é criada quando há alteração na imagem. Toda vez que um usuário especifica um comando, como executar ou copiar, uma nova camada é criada.
+
+> Reversão
+
+Talvez a melhor vantagem da criação de camadas seja a habilidade de reverter quando necessário. Toda imagem possui camadas. Não gostou da iteração atual de uma imagem? Simples, basta reverter para a versão anterior. Esse processo é compatível com uma abordagem de desenvolvimento ágil e possibilita as práticas de integração e implantação contínuas (CI/CD) em relação às ferramentas.
+
+> Implantação rápida
+
+Antigamente, colocar novo hardware em funcionamento, provisionado e disponível, levava dias. E as despesas e esforço necessários para mantê-lo eram onerosos. Os containers baseados em docker podem reduzir o tempo de implantação de horas para segundos. Ao criar um container para cada processo, é possível compartilhar rapidamente esses processos similares com novos aplicativos.
+
+### Criando uma imagem docker e executando:
+
+O suporte do .Net para docker é bem amplo, e existem vários tutoriais de como fazer a publicação de um container .Net no Docker, a própria Microsoft fornece templates que podemos usar, e o Visual Studio 2019 já oferece suporte ao mesmo sem nem precisarmos mexer em código.
+
+Para criar nossa aplicação executaremos o seguinte comando:
+
+````
+dotnet new webapi dockerapi
+````
+
+Isso vai criar nosso projeto inicial. Agora criamos uma solução e vinculamos ao projeto:
+
+````
+dotnet new sln dockerapi
+````
+
+````
+dotnet sln add .\dockerapi\dockerapi.csproj
+````
+
+Depois que nosso projeto foi criado, devemos criar o arquivo Dockerfile:
+
+````
+FROM mcr.microsoft.com/dotnet/aspnet:5.0-focal AS base
+WORKDIR /app
+EXPOSE 5000
+
+ENV ASPNETCORE_URLS=http://+:5000
+ENV ASPNETCORE_ENVIRONMENT=Development
+
+# Creates a non-root user with an explicit UID and adds permission to access the /app folder
+# For more info, please refer to https://aka.ms/vscode-docker-dotnet-configure-containers
+RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
+USER appuser
+
+FROM mcr.microsoft.com/dotnet/sdk:5.0-focal AS build
+WORKDIR /src
+COPY ["DockerApi/DockerApi.csproj", "DockerApi/"]
+RUN dotnet restore "DockerApi/DockerApi.csproj"
+COPY . .
+WORKDIR "/src/DockerApi"
+RUN dotnet build "DockerApi.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "DockerApi.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "DockerApi.dll"]
+````
+
+Com nosso Dockerfile criado, podemos buildar a imagem e rodar o container:
+
+````
+docker build -t dockerapi --rm --no-cache -f .\DockerApi\Dockerfile .
+````
+
+````
+docker run -d -p 5000:5000/tcp dockerapi:latest
+````
+
+Agora nosso container já está configurado e podemos acessa-lo  pela Url: `http://localhost:5000/swagger/index.html`
+
 ---
 
 # Plano de aula
@@ -4402,3 +4490,4 @@ namespace Grpc.Services
 - Mensageria (RabbitMQ);
 - Benchmark;
 - gRPC;
+- Docker;
